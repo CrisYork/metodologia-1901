@@ -18,7 +18,7 @@ public class probar {
         Imc x=new Imc();
         x.p=p;
         x.calcular();
-        System.out.println("El valor es......."+x.valor);
+        System.out.println("El valor de tu IMC es......."+x.valor);
     }
     
 }
