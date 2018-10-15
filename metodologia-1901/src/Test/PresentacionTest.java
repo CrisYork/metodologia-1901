@@ -157,6 +157,7 @@ public class PresentacionTest extends javax.swing.JFrame {
                indiceSelecionado=i;
            }
        }
+        
          // TODO add your handling code here:
        JOptionPane.showConfirmDialog(this,""+evaluar(p1,radios[indiceSelecionado]));
     }//GEN-LAST:event_checarRespuestaActionPerformed
@@ -212,12 +213,18 @@ boolean correcta=false;
 
 
 for(int i=0;i<p.opciones.length;i++){
-    if(opciones[i].titulo.equals(r.getText()))
+    if(p1.opciones[i].titulo.equals(r.getText()))
+        if(p1.opciones[i].correcta){
         correcta=true;
     break;
 }
-
-
-return false;
 }
+
+
+return correcta;
+}
+
+    private String evaluar(Pregunta p1, JRadioButton radio) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
