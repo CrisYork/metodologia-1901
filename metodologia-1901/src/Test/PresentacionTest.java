@@ -149,8 +149,16 @@ public class PresentacionTest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checarRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checarRespuestaActionPerformed
-        // TODO add your handling code here:
-       JOptionPane.showConfirmDialog(this,""+ radioOp3.isSelected());
+      
+       //Buscamos el radioButton seleccionado
+       int indiceSelecionado=0;
+       for(int i=0;i<radios.length;i++){
+           if(radios[i].isSelected()){
+               indiceSelecionado=i;
+           }
+       }
+         // TODO add your handling code here:
+       JOptionPane.showConfirmDialog(this,""+evaluar(p1,radios[indiceSelecionado]));
     }//GEN-LAST:event_checarRespuestaActionPerformed
 
     /**
@@ -198,4 +206,18 @@ public class PresentacionTest extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioOp4;
     private javax.swing.JRadioButton radioOp5;
     // End of variables declaration//GEN-END:variables
+
+public boolean ecaluar(Pregunta p,JRadioButton r){
+boolean correcta=false;
+
+
+for(int i=0;i<p.opciones.length;i++){
+    if(opciones[i].titulo.equals(r.getText()))
+        correcta=true;
+    break;
+}
+
+
+return false;
+}
 }
