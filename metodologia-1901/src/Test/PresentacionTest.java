@@ -15,45 +15,41 @@ import javax.swing.JRadioButton;
 public class PresentacionTest extends javax.swing.JFrame {
 
     JRadioButton radios[];
-    Opcion []opciones;
+    Opcion[] opciones;
     Pregunta p1;
-    
-    
-    
-    
+
     public PresentacionTest() {
         initComponents();
         setLocationRelativeTo(this);
-        
+
         //Generamos en un arreglo los Radios button visuales 
-        radios=new JRadioButton[5];
-        opciones=new Opcion[5];
-        radios[0]=radioOp1;
-        radios[1]=radioOp2;
-        radios[2]=radioOp3;
-        radios[3]=radioOp4;
-        radios[4]=radioOp5;
-        
+        radios = new JRadioButton[5];
+        opciones = new Opcion[5];
+        radios[0] = radioOp1;
+        radios[1] = radioOp2;
+        radios[2] = radioOp3;
+        radios[3] = radioOp4;
+        radios[4] = radioOp5;
+
         //Llenamos el modelo con los valores correctos en la interface de usuario
-        
-        Opcion op1=new Opcion("Las quesadillas",false);
-       // System.out.println("tu titulo es "+op1.titulo);
-       // System.out.println("Es correcta "+op1.correcta);
-        
-       Opcion op2=new Opcion("la grasa",false);
-       Opcion op3=new Opcion("El azucar",true);
-       Opcion op4=new Opcion("la contaminacion",false);
-       Opcion op5=new Opcion("la sal",false);
-       
-      opciones[0]=op1;
-      opciones[1]=op2;
-      opciones[2]=op3;
-      opciones[3]=op4;
-      opciones[4]=op5;
-        p1=new Pregunta("Esta es la causa del cancer",opciones);
-       etiquetaTitulo.setText(p1.titulo);
-        for(int i=0;i<radios.length;i++){
-            
+        Opcion op1 = new Opcion("Las quesadillas", false);
+        // System.out.println("tu titulo es "+op1.titulo);
+        // System.out.println("Es correcta "+op1.correcta);
+
+        Opcion op2 = new Opcion("la grasa", false);
+        Opcion op3 = new Opcion("El azucar", true);
+        Opcion op4 = new Opcion("la contaminacion", false);
+        Opcion op5 = new Opcion("la sal", false);
+
+        opciones[0] = op1;
+        opciones[1] = op2;
+        opciones[2] = op3;
+        opciones[3] = op4;
+        opciones[4] = op5;
+        p1 = new Pregunta("Esta es la causa del cancer", opciones);
+        etiquetaTitulo.setText(p1.titulo);
+        for (int i = 0; i < radios.length; i++) {
+
             radios[i].setText(p1.opciones[i].titulo);
         }
         //
@@ -149,17 +145,20 @@ public class PresentacionTest extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void checarRespuestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checarRespuestaActionPerformed
-      
-       //Buscamos el radioButton seleccionado
-       int indiceSelecionado=0;
-       for(int i=0;i<radios.length;i++){
-           if(radios[i].isSelected()){
-               indiceSelecionado=i;
-           }
-       }
+
+        //Buscamos el radioButton seleccionado
+        int indiceSeleccionado = 0;
+        for (int i = 0; i < radios.length; i++) {
+            if (radios[i].isSelected()) {
+                indiceSeleccionado = i;
+                break;
+            }
+        }
+        System.out.println("El indice seleccionado es " + indiceSeleccionado);
         
-         // TODO add your handling code here:
-       JOptionPane.showConfirmDialog(this,""+evaluar(p1,radios[indiceSelecionado]));
+        JOptionPane.showConfirmDialog(this,""+evaluar(p1,indiceSeleccionado));
+
+
     }//GEN-LAST:event_checarRespuestaActionPerformed
 
     /**
@@ -207,24 +206,13 @@ public class PresentacionTest extends javax.swing.JFrame {
     private javax.swing.JRadioButton radioOp4;
     private javax.swing.JRadioButton radioOp5;
     // End of variables declaration//GEN-END:variables
+public boolean evaluar(Pregunta p, int indiceSeleccionado) {
 
-public boolean ecaluar(Pregunta p,JRadioButton r){
-boolean correcta=false;
-
-
-for(int i=0;i<p.opciones.length;i++){
-    if(p1.opciones[i].titulo.equals(r.getText()))
-        if(p1.opciones[i].correcta){
-        correcta=true;
-    break;
-}
-}
-
-
-return correcta;
-}
-
-    private String evaluar(Pregunta p1, JRadioButton radio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        boolean correcta = false;
+        if (p.opciones[indiceSeleccionado].correcta) {
+            correcta = true;
+        }
+        return correcta ;
     }
+    
 }

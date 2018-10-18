@@ -15,7 +15,7 @@ public class Opcion {
     public Opcion( String x,boolean y){
     System.out.println("Se inicializa el constructor");
     titulo=x;
-    correcta=true;
+    correcta=y;
     }
     
 }
