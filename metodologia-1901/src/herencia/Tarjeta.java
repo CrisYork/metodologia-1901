@@ -9,11 +9,14 @@ package herencia;
  *
  * @author T-107
  */
-public class Tarjeta {
+public abstract class Tarjeta {
     private int numero;  //Esta es la que vamos a encapsular 
     String nombre;
     float saldo;
 
+    public abstract void pagar();
+        
+   
     public float getSaldo() {
         return saldo;
     }
