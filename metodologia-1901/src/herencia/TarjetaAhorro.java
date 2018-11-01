@@ -9,6 +9,6 @@ package herencia;
  *
  * @author T-107
  */
-public class TarjetaAhorro {
-      private  int numero;
+public class TarjetaAhorro extends Tarjeta{ //El extends quiere decir es hija de Tarjeta por lo cual va ha tener todo lo que tarjeta tiene 
+      
 }
