@@ -11,10 +11,11 @@ package herencia;
  */
 public abstract class Tarjeta {
     private int numero;  //Esta es la que vamos a encapsular 
-    String nombre;
-    float saldo;
+    private String nombre;
+    private String tipo;
+    private float saldo;
 
-    public abstract void pagar();
+    public abstract void pagar(float deposito);
         
    
     public float getSaldo() {
@@ -40,7 +41,6 @@ public abstract class Tarjeta {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
-    String tipo;
 
     public int getNumero() {
         return numero;

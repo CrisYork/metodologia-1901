@@ -12,8 +12,8 @@ package herencia;
 public class TarjetaAhorro extends Tarjeta{ //El extends quiere decir es hija de Tarjeta por lo cual va ha tener todo lo que tarjeta tiene 
 
     @Override
-    public void pagar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void pagar(float deposito) {
+        setSaldo((getSaldo()+deposito)+deposito*0.05f);
     }
       
 }
